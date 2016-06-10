@@ -28,6 +28,7 @@ public class SubwayTester {
 			BufferedReader ir = new BufferedReader(new FileReader(args[1]));
 			BufferedReader or = new BufferedReader(new FileReader(args[2]));
 			int cnt = 0;
+			int correct = 0;
 			while (true)
 			{
 				cnt++;
@@ -87,7 +88,10 @@ public class SubwayTester {
 							print("ERROR : incorrect transfer count\n");
 					}
 					else
+					{
 						print("passed\n");
+						correct++;
+					}
 					
 					
 				}
@@ -95,8 +99,11 @@ public class SubwayTester {
 			}
 			ir.close();
 			or.close();
+			
+			print(correct + " / " + (cnt-1) + " passed\n");
 		}
 		catch(Exception e) { print("Wrong format : use \"java SubwayTester data input output\"\n"); return; }
+		
 	}
 	
 	private static void print(String str)
